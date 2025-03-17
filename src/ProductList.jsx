@@ -5,7 +5,7 @@ function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
 
-    const plantsArray = [
+     const plantsArray = [
         {
             category: "Air Purifying Plants",
             plants: [
@@ -274,7 +274,15 @@ function ProductList({ onHomeClick }) {
             </div>
             {!showCart ? (
                 <div className="product-grid">
-
+                    {plantsArray.map((category,index) => (
+                        <div className='plant_main' key={index}>
+                            <div className='img'>
+                                <img src={category.image} alt={category.name} />
+                            <div/>
+                        <div className="text">{category.name}</div>
+                        <div>${category.cost}</div>
+                        <div/>
+                    ))}
 
                 </div>
             ) : (
